@@ -33,6 +33,27 @@ body,
       border: 1px solid black;
       text-align: center;
       line-height: 16px;
+
+      &.unrevealed {
+        background-color: rgb(148, 148, 148);
+      }
+
+      &.empty,
+      &.numbered {
+        background-color: rgb(232, 232, 232);
+      }
+
+      &.bomb {
+        background-color: rgb(250, 89, 89);
+      }
+
+      &.flagged {
+        background-color: rgb(109, 117, 167);
+      }
+
+      &.flagbomb {
+        background-color: rgb(158, 0, 255);
+      }
     }
   }
 }
