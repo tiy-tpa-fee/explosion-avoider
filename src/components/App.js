@@ -3,28 +3,33 @@ import Cell from './Cell'
 
 class App extends Component {
 
+  constructor () {
+    super()
+    this.state = {
+      board: [
+        ['_', '2', 'F', '1'],
+        ['*', '_', '@', '*'],
+        [' ', ' ', ' ', 'F'],
+        ['_', '*', '@', '3']
+      ]
+    }
+  }
   render () {
+    const rows = this.state.board.map((row, i) => {
+      const cols = row.map((col, j) => {
+        return <Cell value={col} key={j} />
+      })
+      return <tr key={i}>
+        {cols}
+      </tr>
+    })
     return <div className='app'>
       <h1>Explosion Avoider!</h1>
 
       <div className='gameboard'>
         <table>
           <tbody>
-            <tr>
-              <Cell value='_' />
-              <Cell value='2' />
-              <Cell value='F' />
-            </tr>
-            <tr>
-              <Cell value='*' />
-              <Cell value='_' />
-              <Cell value='@' />
-            </tr>
-            <tr>
-              <Cell value=' ' />
-              <Cell value=' ' />
-              <Cell value=' ' />
-            </tr>
+            {rows}
           </tbody>
         </table>
       </div>
