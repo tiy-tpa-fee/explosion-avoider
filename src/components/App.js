@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Cell from './Cell'
 
 class App extends Component {
 
@@ -9,19 +10,19 @@ class App extends Component {
         <table>
           <tbody>
             <tr>
-              <td className='empty' />
-              <td className='numbered'>3</td>
-              <td className='flagged' />
+              <Cell value='_' />
+              <Cell value='2' />
+              <Cell value='F' />
             </tr>
             <tr>
-              <td className='bomb' />
-              <td className='unrevealed' />
-              <td className='flagbomb' />
+              <Cell value='*' />
+              <Cell value='_' />
+              <Cell value='@' />
             </tr>
             <tr>
-              <td className='unrevealed' />
-              <td className='unrevealed' />
-              <td className='unrevealed' />
+              <Cell value=' ' />
+              <Cell value=' ' />
+              <Cell value=' ' />
             </tr>
           </tbody>
         </table>
