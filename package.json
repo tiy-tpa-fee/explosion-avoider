@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "deploy": "npm run build && surge ./public --domain explosion-avoider.ambethia.surge.sh",
+    "deploy": "npm run build && surge ./public --domain explosion-avoider.chriskramer2020.surge.sh",
     "start": "webpack-dev-server",
     "build": "rm -rf public && NODE_ENV=production webpack --optimize-minimize --progress --profile --colors"
   },
