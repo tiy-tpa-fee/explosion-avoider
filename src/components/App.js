@@ -1,30 +1,44 @@
 import React, { Component } from 'react'
-import Cell from './Cell'
+import GameBoard from './GameBoard'
+import Lose from './Lose'
+import Start from './Start'
+import Win from './Win'
+import Footer from './Footer'
 
 class App extends Component {
 
   constructor () {
     super()
     this.state = {
-      board: []
+      board: [],
+      state: 'start'
     }
   }
 
-  componentDidMount () {
-    window.fetch('http://minesweeper-api.herokuapp.com/games?difficulty=1', {method: 'POST'}).then((response) => {
+  createGame (i) {
+    window.fetch(`http://minesweeper-api.herokuapp.com/games?difficulty=${i}`, {method: 'POST'}).then((response) => {
       return response.json()
     }).then((data) => {
       this.setState({
         id: data.id,
         board: data.board,
         state: data.state,
-        mines: data.mines
+        mines: data.mines,
+        wonMessage: false,
+        lostMessage: false
       })
     })
   }
 
+  componentDidUpdate (prevProps, prevState) {
+    if (prevState.state === 'playing' && this.state.state === 'lost') {
+      setTimeout((e) => { this.setState({lostMessage: true}) }, 3000)
+    } else if (prevState.state === 'playing' && this.state.state === 'won') {
+      setTimeout((e) => { this.setState({wonMessage: true}) }, 3000)
+    }
+  }
+
   check (x, y) {
-    console.log(`Im checking ${x} and ${y}`)
     window.fetch(`http://minesweeper-api.herokuapp.com/games/${this.state.id}/check?row=${y}&col=${x}`, {method: 'POST'}).then((response) => {
       return response.json()
     }).then((data) => {
@@ -36,7 +50,6 @@ class App extends Component {
   }
 
   flag (x, y) {
-    console.log(`Im flagging ${x} and ${y}`)
     window.fetch(`http://minesweeper-api.herokuapp.com/games/${this.state.id}/flag?row=${y}&col=${x}`, {method: 'POST'}).then((response) => {
       return response.json()
     }).then((data) => {
@@ -46,30 +59,31 @@ class App extends Component {
     })
   }
 
-  render () {
-    const rows = this.state.board.map((row, i) => {
-      const cols = row.map((col, j) => {
-        return <Cell
-          value={col.toString()}
-          handleCheck={() => { this.check(j, i) }}
-          handleFlag={() => { this.flag(j, i) }}
-          key={j} />
-      })
-      return <tr key={i}>
-        {cols}
-      </tr>
+  reset () {
+    console.log('clicking')
+    this.setState({
+      state: 'start'
     })
-    return <div className='app'>
-      <h1>Explosion Avoider!</h1>
+  }
 
-      <div className='gameboard'>
-        <table>
-          <tbody>
-            {rows}
-          </tbody>
-        </table>
-      </div>
-      <footer>Potatoes made with love at the Iron Yard.</footer>
+  render () {
+    let view
+    if (this.state.state === 'start') {
+      view = <Start createGame={(i) => this.createGame(i)} />
+    } else if (this.state.lostMessage) {
+      view = <Lose reset={() => this.reset()} />
+    } else if (this.state.wonMessage) {
+      view = <Win reset={() => this.reset()} />
+    } else {
+      view = <GameBoard board={this.state.board} check={(x, y) => this.check(x, y)} flag={(x, y) => this.flag(x, y)} />
+    }
+
+    return <div className='app'>
+      <header className='header'>
+        <h1>Minesweeper</h1>
+      </header>
+      {view}
+      <Footer />
     </div>
   }
 }

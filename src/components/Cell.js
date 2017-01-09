@@ -16,14 +16,26 @@ class Cell extends Component {
     handleFlag: React.PropTypes.func.isRequired
   }
 
+  icon () {
+    switch (this.props.value) {
+      case '*':
+        return <i className='fa fa-bomb' aria-hidden='true' />
+      case 'F':
+        return <i className='fa fa-flag' aria-hidden='true' />
+      case '@':
+        return <i className='fa fa-bomb fa-flag' aria-hidden='true' />
+    }
+  }
+
   render () {
-    return <td onClick={() => this.props.handleCheck()}
+    return <td
+      onClick={() => this.props.handleCheck()}
       onContextMenu={(e) => {
         e.preventDefault()
         this.props.handleFlag()
       }}
       className={classMap[this.props.value] || 'numbered'}>
-      {this.props.value.match(/\d/) ? this.props.value : null}
+      {this.props.value.match(/\d/) ? this.props.value : this.icon()}
     </td>
   }
 }

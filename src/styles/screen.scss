@@ -1,5 +1,8 @@
 @import 'utility';
 
+$base-text-size: 16px;
+$base-font-family: sans-serif;
+
 html {
   text-size-adjust: 100%;
   height: 100vh;
@@ -13,51 +16,57 @@ body {
 body,
 #root,
 .app {
-  min-height: 100vh;
+    min-height: 100vh;
 }
 
 .app {
   display: flex;
-  align-items: center;
-  flex-direction: column;
   justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+}
+
+.social {
+  background-color: rgb(77,77,60);
 }
 
 .gameboard {
+  background-color: rgb(148,148,148);
   table {
     border-spacing: 0;
-
+    background-color: rgb(109,117,167);
     td {
       height: 16px;
       width: 16px;
       border: 1px solid black;
+      background-color: red;
       text-align: center;
       line-height: 16px;
-
-      &.unrevealed {
-        background-color: rgb(148, 148, 148);
-      }
-
-      &.empty,
-      &.numbered {
-        background-color: rgb(232, 232, 232);
-      }
-
-      &.bomb {
-        background-color: rgb(250, 89, 89);
-      }
-
-      &.flagged {
-        background-color: rgb(109, 117, 167);
-      }
-
-      &.flagbomb {
-        background-color: rgb(158, 0, 255);
-      }
+    }
+    &.unrevealed {
+      background-color: rgb(148,148,148);
+    }
+    &.empty,
+    &.numbered {
+      background-color: rgb(232,232,232);
+    }
+    &.bomb {
+      background-color: rgb(250,89,89);
+    }
+    &.flagged {
+      background-color: rgb(109,117,167);
+    }
+    &.flagbomb {
+      background-color: rgb(158, 0 , 255);
     }
   }
 }
 
 footer {
   padding: 1em;
+  background-color: rgb(118, 100, 131);
+}
+
+li {
+  list-style-type: none;
 }
