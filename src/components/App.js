@@ -79,11 +79,21 @@ class App extends Component {
     }
 
     return <div className='app'>
-      <header className='header'>
-        <h1>Minesweeper</h1>
-      </header>
+      <section id='chris'>
+        <header className='header'>
+          <h1>Minesweeper</h1>
+        </header>
+      </section>
       {view}
-      <Footer />
+      <section id='see'>
+        <ul id='floor'>
+          <li id='a'>1</li>
+          <li id='b'>2</li>
+          <li id='c'>3</li>
+          <li id='d'>4</li>
+        </ul>
+        <Footer />
+      </section>
     </div>
   }
 }

@@ -17,6 +17,7 @@ body,
 #root,
 .app {
     min-height: 100vh;
+    width: 100%;
 }
 
 .app {
@@ -24,6 +25,8 @@ body,
   justify-content: space-between;
   flex-direction: column;
   align-items: center;
+  background-color: rgb(85,92,90);
+  width: 100%;
 }
 
 .social {
@@ -39,32 +42,87 @@ body,
       height: 16px;
       width: 16px;
       border: 1px solid black;
-      background-color: red;
       text-align: center;
       line-height: 16px;
-    }
-    &.unrevealed {
-      background-color: rgb(148,148,148);
-    }
-    &.empty,
-    &.numbered {
-      background-color: rgb(232,232,232);
-    }
-    &.bomb {
-      background-color: rgb(250,89,89);
-    }
-    &.flagged {
-      background-color: rgb(109,117,167);
-    }
-    &.flagbomb {
-      background-color: rgb(158, 0 , 255);
     }
   }
 }
 
 footer {
   padding: 1em;
-  background-color: rgb(118, 100, 131);
+  // background-color: rgb(118, 100, 131);
+  width: 100%;
+  align-items: center;
+  text-align: center;
+}
+
+#a {
+  position: relative;
+  // left: 250px;
+  border: 2px solid black;
+}
+
+#b {
+  position: relative;
+  // left: 250px;
+  border: 2px solid black;
+}
+
+#c {
+  position: relative;
+  // left: 250px;
+  border: 2px solid black;
+}
+
+header {
+  text-align: center;
+  align-items: center;
+  align-content: center;
+}
+
+h1 {
+  text-align: center;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  left: 565px;
+  color: white;
+  align-content: center;
+  display: flex;
+}
+
+#d {
+  position: relative;
+  // left: 250px;
+  border: 2px solid black;
+}
+
+#chris {
+  width: 100%;
+  flex-direction: row;
+  height: 100%;
+  background-color: rgb(29,9,9);
+  display: flex;
+  align-items: center;
+}
+
+#floor {
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+  flex: 1;
+  justify-content: space-between;
+  background-color: rgb(29,29,32);
+  width: 100%;
+  top: -15px;
+  position: relative;
+}
+
+#see {
+  width: 100%;
+  background-color: rgb(20,40,20);
+  align-items: center;
+  justify-content: space-between;
 }
 
 li {
