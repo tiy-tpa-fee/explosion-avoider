@@ -51,26 +51,22 @@ body,
 footer {
   padding: 1em;
   // background-color: rgb(118, 100, 131);
-  width: 100%;
   align-items: center;
   text-align: center;
 }
 
 #a {
   position: relative;
-  // left: 250px;
   border: 2px solid black;
 }
 
 #b {
   position: relative;
-  // left: 250px;
   border: 2px solid black;
 }
 
 #c {
   position: relative;
-  // left: 250px;
   border: 2px solid black;
 }
 
@@ -85,10 +81,20 @@ h1 {
   align-items: center;
   width: 100%;
   position: relative;
-  left: 565px;
   color: white;
   align-content: center;
   display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+#mine {
+  text-align: center;
+  position: relative;
+  align-content: center;
+  display: flex;
+  flex:1;
+  flex-direction: column;
 }
 
 #d {
@@ -99,10 +105,8 @@ h1 {
 
 #chris {
   width: 100%;
-  flex-direction: row;
   height: 100%;
   background-color: rgb(29,9,9);
-  display: flex;
   align-items: center;
 }
 
@@ -113,7 +117,6 @@ h1 {
   flex: 1;
   justify-content: space-between;
   background-color: rgb(29,29,32);
-  width: 100%;
   top: -15px;
   position: relative;
 }
@@ -127,4 +130,19 @@ h1 {
 
 li {
   list-style-type: none;
+}
+
+h2 {
+  color: white;
+}
+
+h5 {
+  color: white;
+}
+
+#playAgain {
+  background-color: black;
+  color: white;
+  padding: 18px;
+  font-size: 22px;
 }

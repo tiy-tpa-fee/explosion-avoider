@@ -15,11 +15,10 @@ class Win extends Component {
       <h1>
         YOU WIN!!!
       </h1>
-      <button onClick={() => this.props.reset()}>
+      <button id='playAgain' onClick={() => this.props.reset()}>
         Play Again?
       </button>
     </div>
   }
 }
-
 export default Win
